@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Form } from "./components/Form";
+import { Header } from "./components/Header";
+import { Postitem } from "./components/Postitem";
 
 function App() {
+  const [posts,setPosts] = useState([
+  ])
+
+  const createList = (newPost) => {
+    setPosts([...posts, newPost]);
+  }
+
+  const removePost = (post) => {
+    setPosts(posts.filter(p => p.id !== post.id));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=' width[100%] bg-white-300 flex item-center justify-center flex-col'>
+      <Header post={posts} title={"Todo List"}/>
+      <hr></hr>
+      <Form create={createList}/>
+      <hr></hr>
+      {posts.length !== 0
+        ? posts.map((post, index) => <Postitem remove={removePost} number={index + 1} post={post} key={post.id}/>)
+        : <h1 className="text-center font-bold text-purple-900 mt-10 text-2xl">List not found...</h1>
+      }
     </div>
   );
 }
