@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "./components/Form";
 import { Header } from "./components/Header";
 import { Postitem } from "./components/Postitem";
+import './App.css';
 
 function App() {
   const [posts,setPosts] = useState([

@@ -1,6 +1,6 @@
 {
   "homepage": "http://NikaShabashvili03.github.io/To-Do-List",
-  "name": "TODOLIST",
+  "name": "todolist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
