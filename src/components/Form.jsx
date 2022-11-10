@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export const Form = ({create}) => {
     const [error, setError] = useState('')
@@ -11,7 +11,7 @@ export const Form = ({create}) => {
         e.preventDefault();
         setError('');
         if(post.name.trim().length === 0){
-            setError('Please enter valid Name')
+            setError('Please enter valid to-do')
             return
         }
         const newPost = {
